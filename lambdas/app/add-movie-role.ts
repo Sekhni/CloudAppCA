@@ -3,6 +3,7 @@ import type { TransactionCanceledException } from "@aws-sdk/client-dynamodb";
 import { TransactWriteCommand } from "@aws-sdk/lib-dynamodb";
 import { actorKey, ddb, movieKey, type Role, tableName } from "../shared/db";
 import { isResponse, parseJsonObject, response } from "../shared/http";
+import { logRequest } from "../shared/request-logger";
 
 const isPositiveInt = (value: unknown): value is number =>
   Number.isInteger(value) && (value as number) > 0;
