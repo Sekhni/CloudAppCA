@@ -14,6 +14,7 @@ const isNonEmptyString = (value: unknown): value is string =>
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
+  logRequest(event);
   const body = parseJsonObject(event);
   if (isResponse(body)) return body;
 
